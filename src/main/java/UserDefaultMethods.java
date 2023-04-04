@@ -28,10 +28,15 @@ public class UserDefaultMethods extends RestClient {
 
 
     @Step("Self-delete")
-    public ValidatableResponse deleteMe(){
+    public ValidatableResponse deleteMe(String accessToken, String password){
+        String body = "{\n" +
+                "    \"current_password\" : \"" + password + "\"\n" +
+                "}";
         return
                 given()
                         .spec(getBaseSpec())
+                        .header("Authorization", "Token " + accessToken)
+                        .body(body)
                         .when()
                         .delete("/api/users/me/")
                         .then();

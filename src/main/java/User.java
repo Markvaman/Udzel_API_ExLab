@@ -1,3 +1,4 @@
+
 public class User {
     private String email;
     private String username;
@@ -5,6 +6,11 @@ public class User {
 
     public User (String email, String username, String password) {
         this.email = email;
+        this.password = password;
+        this.username = username;
+    }
+
+    public User (String username, String password) {
         this.password = password;
         this.username = username;
     }
