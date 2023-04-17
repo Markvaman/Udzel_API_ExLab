@@ -16,11 +16,15 @@ public class UserDefaultMethods extends RestClient {
     }
 
     @Step("Get token")
-    public ValidatableResponse getToken(UserCredentials credentials) {
+    public ValidatableResponse getToken(UserCredentials userCredentials) {
+//        String body = "{\n" +
+//                "    \"email\" : \"" + email + "\"\n" +
+//                "    \"password\" : \"" + password + "\"\n" +
+//                "}";
         return
                 given()
                         .spec(getBaseSpec())
-                        .body(credentials)
+                        .body(userCredentials)
                         .when()
                         .post("/api/jwt/create/")
                         .then();
@@ -60,6 +64,12 @@ public class UserDefaultMethods extends RestClient {
                         .when()
                         .get("/api/users/me/")
                         .then();
+    }
+
+    @Step("Full delete flaw")
+    public void deleteUser(String email, String password){
+        String accessToken = getToken(new UserCredentials(email, password)).extract().body().path("access").toString();
+        deleteMe(accessToken, password);
     }
 
 }
