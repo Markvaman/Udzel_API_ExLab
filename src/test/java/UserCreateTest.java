@@ -43,6 +43,7 @@ public class UserCreateTest extends UserDefaultMethods {
         String userEmail = response.extract().path("email");
         System.out.println("The user "+ userEmail + " is created");
 
+        EMAIL_UP = EMAIL_UP.toLowerCase();
         deleteUser(EMAIL_UP, PASSWORD);
        }
 

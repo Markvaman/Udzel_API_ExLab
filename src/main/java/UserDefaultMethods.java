@@ -57,10 +57,11 @@ public class UserDefaultMethods extends RestClient {
     }
 
     @Step("Get my information")
-    public ValidatableResponse getReadMe(){
+    public ValidatableResponse getReadMe(String accessToken){
         return
                 given()
                         .spec(getBaseSpec())
+                        .header("Authorization", "Token " + accessToken)
                         .when()
                         .get("/api/users/me/")
                         .then();
