@@ -9,14 +9,6 @@ import static org.apache.http.HttpStatus.SC_CREATED;
 public class UserCreateTest extends UserDefaultMethods {
     private User user;
 
-
-//    @AfterMethod
-//    public void deleteUser() {
-//        UserCredentials userCredentials = new UserCredentials(email, password);
-//        accessToken = getToken(userCredentials).extract().body().path("access").toString();
-//        deleteMe(accessToken, password);
-//    }
-
     @Test
     @Description("User account is created successfully with lower case email")
     public void accountIsCreatedWithLowerCaseEmail(){
@@ -34,7 +26,6 @@ public class UserCreateTest extends UserDefaultMethods {
     @Test
     @Description("User account is created successfully with lower case email")
     public void accountIsCreatedWithUppercaseEmail() {
-        //email = faker.internet().emailAddress().toUpperCase();
         user = new User(EMAIL_UP, USERNAME, PASSWORD);
         ValidatableResponse response = create(user);
         int statusCode = response.extract().statusCode();

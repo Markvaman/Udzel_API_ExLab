@@ -17,10 +17,6 @@ public class UserDefaultMethods extends RestClient {
 
     @Step("Get token")
     public ValidatableResponse getToken(UserCredentials userCredentials) {
-//        String body = "{\n" +
-//                "    \"email\" : \"" + email + "\"\n" +
-//                "    \"password\" : \"" + password + "\"\n" +
-//                "}";
         return
                 given()
                         .spec(getBaseSpec())
