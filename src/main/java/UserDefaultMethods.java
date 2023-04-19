@@ -1,5 +1,6 @@
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
+import org.testng.Assert;
 
 import static io.restassured.RestAssured.given;
 
@@ -63,10 +64,29 @@ public class UserDefaultMethods extends RestClient {
                         .then();
     }
 
+    @Step("Update username successfully")
+    public ValidatableResponse updateUsername(String accessToken, User user){
+        return
+                given()
+                        .spec(getBaseSpec())
+                        .header("Authorization", "Token " + accessToken)
+                        .body(user)
+                        .when()
+                        .patch("/api/users/me/")
+                        .then();
+
+    }
+
     @Step("Full delete flaw")
     public void deleteUser(String email, String password){
         String accessToken = getToken(new UserCredentials(email, password)).extract().body().path("access").toString();
         deleteMe(accessToken, password);
     }
+
+//    public void fullGetToken(UserCredentials userCredentials){
+//        ValidatableResponse responseToken = getToken(userCredentials);
+//        String accessToken = responseToken.extract().body().path("access").toString();
+//        Assert.assertNotNull(accessToken);
+//    }
 
 }

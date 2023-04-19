@@ -1,8 +1,13 @@
 package config;
 import com.github.javafaker.Faker;
 
+import java.util.Locale;
+
 public class TestData {
     private static Faker faker = new Faker();
+    private static Faker fakerRU = Faker.instance(new Locale("ru-RU"));
+
+    //For creation tests
     public static String PASSWORD = faker.bothify("##??????");
     public static String PASSWORD_LOW = faker.letterify("????????").toLowerCase();
     public static String PASSWORD_UP = faker.letterify("?????????").toUpperCase();
@@ -21,5 +26,13 @@ public class TestData {
     public static String EMAIL_WITH_DOTS_ROW = faker.letterify("??????..????@gmail.com");
     public static String EMAIL_FIRST_DOT = faker.letterify(".?????????@gmail.com");
     public static String EMAIL_DOMAIN_DOT = faker.letterify("????????@.???.??");
+
+    //For update test
+    public static String USERNAME_UP_LOW = faker.letterify("????").toLowerCase() + faker.letterify("????").toUpperCase();
+    public static String USERNAME_CYRILLIC = fakerRU.name().username();
+    public static String USERNAME_DIGITS = faker.bothify("???????##");
+    public static String USERNAME_SYMBOL = faker.letterify("@???????");
+
+
 
 }
