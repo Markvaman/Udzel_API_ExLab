@@ -1,8 +1,13 @@
+package positive_tests.user_update;
+
+import user.User;
 import io.qameta.allure.Description;
 import io.restassured.response.ValidatableResponse;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import user.UserCredentials;
+import user.UserDefaultMethods;
 
 import static config.TestData.*;
 import static org.apache.http.HttpStatus.SC_CREATED;

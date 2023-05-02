@@ -32,6 +32,8 @@ public class TestData {
     public static String USERNAME_CYRILLIC = fakerRU.name().username();
     public static String USERNAME_DIGITS = faker.bothify("???????##");
     public static String USERNAME_SYMBOL = faker.letterify("@???????");
+    public static String USERNAME_EMPTY = "        ";
+    public static String USERNAME_LONG = faker.letterify("?").repeat(151);
 
 
 

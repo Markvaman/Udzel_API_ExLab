@@ -1,3 +1,5 @@
+package user;
+
 public class UserLoginParams {
     private String uid;
     private String accessToken;

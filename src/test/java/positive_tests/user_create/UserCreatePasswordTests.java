@@ -1,14 +1,17 @@
+package positive_tests.user_create;
+
 import io.qameta.allure.Description;
 import io.restassured.response.ValidatableResponse;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import user.User;
+import user.UserDefaultMethods;
 
 import static config.TestData.*;
-import static org.apache.http.HttpStatus.*;
+import static org.apache.http.HttpStatus.SC_CREATED;
 
 public class UserCreatePasswordTests extends UserDefaultMethods {
     private User user;
-    private UserCredentials userCredentials;
 
     @Test
     @Description("Lower case password is accepted")

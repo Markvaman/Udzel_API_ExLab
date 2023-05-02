@@ -1,9 +1,10 @@
+package user;
+
+import config.RestClient;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import org.testng.Assert;
 
-import static config.TestData.*;
-import static config.TestData.USERNAME;
 import static io.restassured.RestAssured.given;
 import static org.apache.http.HttpStatus.*;
 
@@ -114,7 +115,7 @@ public class UserDefaultMethods extends RestClient {
         Assert.assertEquals(response.extract().statusCode(), SC_NO_CONTENT);
     }
 
-//    public void fullGetToken(UserCredentials userCredentials){
+//    public void fullGetToken(User.UserCredentials userCredentials){
 //        ValidatableResponse responseToken = getToken(userCredentials);
 //        String accessToken = responseToken.extract().body().path("access").toString();
 //        Assert.assertNotNull(accessToken);

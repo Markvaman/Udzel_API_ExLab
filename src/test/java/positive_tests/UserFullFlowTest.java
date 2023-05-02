@@ -1,7 +1,12 @@
+package positive_tests;
+
+import user.User;
 import io.qameta.allure.Description;
 import io.restassured.response.ValidatableResponse;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import user.UserCredentials;
+import user.UserDefaultMethods;
 
 import static config.TestData.*;
 import static org.apache.http.HttpStatus.*;
@@ -28,6 +33,6 @@ public class UserFullFlowTest extends UserDefaultMethods {
 
         ValidatableResponse responseDelete = deleteMe(token, PASSWORD);
         Assert.assertEquals(responseDelete.extract().statusCode(), SC_NO_CONTENT);
-        System.out.println("User " + EMAIL_LOW + " is deleted");
+        System.out.println("user " + EMAIL_LOW + " is deleted");
     }
 }

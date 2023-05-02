@@ -1,14 +1,19 @@
+package positive_tests.user_update;
+
+import user.User;
 import io.qameta.allure.Description;
 import io.restassured.response.ValidatableResponse;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import user.UserCredentials;
+import user.UserDefaultMethods;
 
 import static config.TestData.*;
 import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.apache.http.HttpStatus.SC_OK;
 
-public class EmailUpdateTests extends UserDefaultMethods{
+public class EmailUpdateTests extends UserDefaultMethods {
         private User user;
         private UserCredentials userCredentials;
 
@@ -73,7 +78,7 @@ public class EmailUpdateTests extends UserDefaultMethods{
         String accessToken = responseToken.extract().body().path("access").toString();
         Assert.assertNotNull(accessToken);
 
-        user = new User (EMAIL_DOMAIN_DOT, PASSWORD);
+        user = new User(EMAIL_DOMAIN_DOT, PASSWORD);
         ValidatableResponse response = updateEmail(accessToken, user);
         Assert.assertEquals(response.extract().statusCode(), SC_OK);
         Assert.assertEquals(response.extract().body().path("email").toString(), EMAIL_DOMAIN_DOT);

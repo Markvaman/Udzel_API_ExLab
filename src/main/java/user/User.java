@@ -1,3 +1,5 @@
+package user;
+
 import lombok.*;
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor
 public class User {

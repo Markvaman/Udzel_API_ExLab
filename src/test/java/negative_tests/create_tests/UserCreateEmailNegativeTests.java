@@ -1,11 +1,16 @@
+package negative_tests.create_tests;
+
 import io.qameta.allure.Description;
 import io.restassured.response.ValidatableResponse;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import user.User;
+import user.UserDefaultMethods;
+
 import static config.TestData.*;
 import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
 
-public class UserCreateNegativeTests extends UserDefaultMethods {
+public class UserCreateEmailNegativeTests extends UserDefaultMethods {
     private User user;
 
     @Test
